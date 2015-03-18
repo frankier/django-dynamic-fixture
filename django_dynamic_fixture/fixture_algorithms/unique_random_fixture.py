@@ -178,3 +178,8 @@ class UniqueRandomDataFixture(DataFixture):
         y = random.randint(-90, 90)
         WGS84_SRID = 4326
         return Point(x=x, y=y, srid=WGS84_SRID)
+
+    # django-pgfields
+    def uuidfield_config(self, field, key):
+        from uuid import uuid4
+        return uuid4()

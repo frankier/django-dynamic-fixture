@@ -155,6 +155,11 @@ class SequentialDataFixture(DataFixture):
         val = rest if (val/90 % 2) else -rest
         return Point(val, val)
 
+    # django-pgfields
+    def uuidfield_config(self, field, key):
+        from uuid import uuid4
+        return uuid4()
+
 
 class GlobalSequentialDataFixture(SequentialDataFixture):
     def get_value(self, field, key):
